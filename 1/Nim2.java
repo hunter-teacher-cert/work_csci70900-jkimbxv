@@ -4,8 +4,8 @@ import java.util.Scanner;
 import java.util.Random;
 
 //This is me trying to code from scratch to make sure I understand
-//all the components. 
-
+//all the components.
+//editedit
 public class Nim2{
 
 public static int stonesCurr = 12;
