@@ -18,9 +18,6 @@ import java.util.Scanner;
 //distribute stones from pit
 //keep going until you run out of stones in the pit
 
-/**
- *
- **/
 public class Mancala{
   //0's at indices 6 and 13 to represent mancala
   public static int[] gameBoard = {4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0};
@@ -68,7 +65,6 @@ public class Mancala{
     System.out.println("AI's turn is "+pit);
 
 
-
     int stonesInPit = gameBoard[pit];//grab how many stones are in the pit user picked
     //loop proceeds until stonesInPit == 0
     //increments gameboard elements
@@ -89,7 +85,6 @@ public class Mancala{
     }
     return (pit == 13); //returns boolean to check if last piece went in manacala
     }
-  }
 
 
 
@@ -97,14 +92,14 @@ public class Mancala{
 	* Displays the current gameBoard
   * @return None
 	*/
-	public static void displayBoard() {
+  public static void displayBoard() {
 
     //Print gameboard out in full Array without formatting
     //System.out.println(Arrays.toString(gameBoard));
 
     // Prints AI gameboard in two row format with mancala on the left side
     System.out.print(gameBoard[13] + " ");
-    for (int i = 7; i < 13; i++) {
+    for (int i = 12; i > 6; i--) {
        System.out.print(gameBoard[i]);
     }
 
@@ -115,8 +110,7 @@ public class Mancala{
     }
     System.out.println(" " + gameBoard[6] + " ");
 
-
-	}//end displayBoard
+  }//end displayBoard
 
 
   /**
@@ -143,21 +137,26 @@ public class Mancala{
 
 	}//end checkWinner
 
-
+public static boolean noUserMove(){
+  int currSum = 0;
+  for (int i = 0; i<6;i++){
+    currSum+=gameBoard[i];
+  }
+  return (currSum==0);
+}
 
   public static void main(String[] args){
-
 
     while(true) {
       //setup gameBoard/display it
       displayBoard();
+      boolean aiManc;
       //boolean added to allow user to go again if
       // last stone is in macala
-      boolean userManc = userTurn();
-
-      if (userManc){
-        continue;
+      if (noUserMove()){
+        aiManc = aiTurn();
       }
+      boolean userManc = userTurn();
 
       // Check if there is a winner
       if ( checkWinner() != -1 ) {
@@ -166,10 +165,7 @@ public class Mancala{
 
       //display board
       displayBoard();
-      boolean aiManc = aiTurn();
-      if (aiManc){
-        continue;
-      }
+      aiManc = aiTurn();
       // Check if there is a winner
       if ( checkWinner() != -1 ) {
         break;
@@ -184,10 +180,6 @@ public class Mancala{
     //display board
     //check if still user turn/loop back if ai
 
-
-//for (i=pit+1; i<pit+stonesInPit+1; i++){
-  //gameBoard[i]++
-//}
 
   }
 
