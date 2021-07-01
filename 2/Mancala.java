@@ -25,23 +25,19 @@ public class Mancala{
   //is a user userTurn
   //asks user which pit to take from
   public static boolean userTurn(){
-    //display gameboard so player can see goes here
+
     Scanner myObj = new Scanner(System.in);  // Create a Scanner object
     System.out.println("User, Which pit to move from?: ");
     int pit = myObj.nextInt();  // Read user input
 
     while(gameBoard[pit] == 0) { // check valid move, loop if user input is invalid
-      System.out.println("User, Which pit to move from?: ");
+      System.out.println("No stones there. Pick a different pit: ");
       pit = myObj.nextInt();  // Read user input
     }//end while
 
-
     int stonesInPit = gameBoard[pit];//grab how many stones are in the pit user picked
-    //loop proceeds until stonesInPit == 0
-    //increments gameboard elements
-    gameBoard[pit] = 0; //empties the pit user picked
-    pit++;//incrememnts "pit index"
-    //while loop distributes the stones from the pit
+    gameBoard[pit] = 0;
+    pit++;
     while (stonesInPit>0) {
       if (pit==13) { //makes sure not to drop in opponent's mancala
         pit=0; //loops to my pit
@@ -58,35 +54,34 @@ public class Mancala{
   public static boolean aiTurn(){
     //display gameboard so player can see goes here
     Random random = new Random();
-    int pit = random.nextInt(5)+7;
+    int pit = random.nextInt(6)+7;
     while(gameBoard[pit] == 0) { // check if AI valid move
-       pit = random.nextInt(5)+7;// Generate new AI move that's not empty
+      if (noAIMove()){
+        break;
+      }
+       pit = random.nextInt(6)+7;// Generate new AI move that's not empty
+       System.out.println(pit);
     }//end while
     System.out.println("AI's turn is "+pit);
-
 
     int stonesInPit = gameBoard[pit];//grab how many stones are in the pit user picked
     //loop proceeds until stonesInPit == 0
     //increments gameboard elements
     gameBoard[pit]=0; //empties the pit user picked
-    pit++;//incrememnts "pit index"
     //while loop distributes the stones from the pit
     while (stonesInPit>0){
-      if (pit==6){ //makes sure not to drop in opponent's mancala
-        pit=7; //loops to ai pit start
-      }
-      gameBoard[pit]=gameBoard[pit]+1;
       if (pit==13){ //checks if at end of array
-        pit=0; //loops back to first pit on opponents side
+        pit=0;//loops back to first pit on opponents side
+      }else if (pit==6){ //makes sure not to drop in opponent's mancala
+        pit=7; //loops to ai pit start
       }else{ //if not at the end
         pit++; //move on to next pit
       }
+      gameBoard[pit]++;
       stonesInPit--;
     }
     return (pit == 13); //returns boolean to check if last piece went in manacala
     }
-
-
 
   /**
 	* Displays the current gameBoard
@@ -100,13 +95,13 @@ public class Mancala{
     // Prints AI gameboard in two row format with mancala on the left side
     System.out.print(gameBoard[13] + " ");
     for (int i = 12; i > 6; i--) {
-       System.out.print(gameBoard[i]);
+       System.out.print(gameBoard[i]+ " ");
     }
 
     // Prints user gameboard in two row format with mancala on the right side
     System.out.print("\n  ");
     for (int i = 0; i < 6; i++) {
-       System.out.print(gameBoard[i]);
+       System.out.print(gameBoard[i]+" ");
     }
     System.out.println(" " + gameBoard[6] + " ");
 
@@ -144,33 +139,35 @@ public static boolean noUserMove(){
   }
   return (currSum==0);
 }
+public static boolean noAIMove(){
+  int currSum = 0;
+  for (int i = 7; i<13;i++){
+    currSum+=gameBoard[i];
+  }
+  return (currSum==0);
+}
 
   public static void main(String[] args){
 
-    while(true) {
+    while(!noUserMove() || !noAIMove()) {
       //setup gameBoard/display it
       displayBoard();
       boolean aiManc;
-      //boolean added to allow user to go again if
-      // last stone is in macala
-      if (noUserMove()){
-        aiManc = aiTurn();
-      }
-      boolean userManc = userTurn();
 
+
+      boolean userManc = userTurn();
       // Check if there is a winner
-      if ( checkWinner() != -1 ) {
+      if ( checkWinner() == 0 ) {
         break;
       }
 
-      //display board
       displayBoard();
       aiManc = aiTurn();
       // Check if there is a winner
-      if ( checkWinner() != -1 ) {
+      if ( checkWinner() == 1) {
         break;
       }
-
+      System.out.println("game over");
     }//end while gameloop
 
 
