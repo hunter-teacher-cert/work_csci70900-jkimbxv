@@ -1,0 +1,30 @@
+Pre-acceptance Pre-work 03
+Chapter 4 Exercise 1
+
+1. 
+//ping() will print a period and finish the line. 
+//baffle() will print wug and then call ping()
+
+No, I wug.
+You wugga wug.
+I wug. 
+
+2. //I wasn't sure what to do since no variables were assigned so I left the stack diagram 
+//blank inside. 
+main[]
+zoop[]
+baffle[]
+ping[]
+
+3. If ping was as described, I imagined it like this. 
+
+Public static void ping(){
+ System.out.println(".");
+ baffle();
+}
+
+We'd get an infinite loop. Ping would call baffle and baffle would then call ping which would then call baffle. We'd get a constant loop of 
+wug.
+wug.
+wug.
+wug. Etc. 
