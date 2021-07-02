@@ -14,8 +14,7 @@ Dwayne, Jiyoon, and Benson
    NOTA BENE:  All births and deaths occur simultaneously. Together, they constitute a single generation
 */
 
-public class Cgol
-{
+public class Cgol{
   //initialize empty board (all cells dead)
   public static char[][] createNewBoard(int rows, int cols) {
     char[][] result = new char[rows][cols];
@@ -181,18 +180,6 @@ public class Cgol
     }else{
       return '-';
     }
-  /*
-    * A cell with 2 or 3 living neighbours will survive for the next generation.
-
-   Death:
-   * Each cell with >3 neighbours will die from overpopulation.
-
-   * Every cell with <2 neighbours will die from isolation.
-
-   Birth:
-   * Each dead cell adjacent to exactly 3 living neighbours is a birth cell. It will come alive next generation.
-   NOTA BENE:  All births and deaths occur simultaneously. Together, they constitute a single generation
-   */
   }
 
 
@@ -210,13 +197,6 @@ public class Cgol
      }
     return newBoard;
 
-    // for(int i = 0; i < r; i++){
-    //     for (j = 0; j < j[0].length){
-
-    //     }
-    // }
-
-
     //should represent the new amount of Xs and Os based on position of living cells
     //if cell next to [r][c] is dead then cell it self is deal
     //if cell next to current cell != 'X' then current cell itself is the '0'
@@ -227,37 +207,53 @@ public class Cgol
 
   public static void main( String[] args )
   {
+    //Initialize empty board
 
     char[][] board;
-    board = createNewBoard(5,5);
+    board = createNewBoard(15,15);
+    System.out.println("Empty Board:");
     printBoard(board);
-    System.out.println();
+    System.out.println("--------------------------\n\n");
+
     //breathe life into some cells:
-    setCell(board, 0, 0, 'X');
-    setCell(board, 0, 1, 'X');
-    setCell(board, 0, 2, 'X');
-    setCell(board, 3, 2, 'X');
-    setCell(board, 3, 3, 'X');
+
+    //Static
+    setCell(board, 1, 1, 'X');
+    setCell(board, 2, 1, 'X');
+    setCell(board, 2, 2, 'X');
+    setCell(board, 1, 2, 'X');
+
+
+    //Oscillating
+    setCell(board, 8, 13, 'X');
+    setCell(board, 9, 13, 'X');
+    setCell(board, 10, 13, 'X');
+    // setCell(board, 4, 4, 'X');
+
+    //Traveling
+    setCell(board, 6, 5, 'X');
+    setCell(board, 7, 6, 'X');
+    setCell(board, 8, 6, 'X');
+    setCell(board, 8, 5, 'X');
+    setCell(board, 8, 4, 'X');
+
+    //Print 1st Gen
     System.out.println("Gen X:");
     printBoard(board);
     System.out.println("--------------------------\n\n");
+
+    //Print 2nd Gen
     System.out.println("Gen X+1:");
     board = generateNextBoard(board);
     printBoard(board);
     System.out.println("--------------------------\n\n");
+
+    //Print 3rd Gen
     System.out.println("Gen X+2:");
     board = generateNextBoard(board);
     printBoard(board);
     System.out.println("--------------------------\n\n");
 
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // TASK:
-    // Once your initial version is running,
-    // try out different starting configurations of living cells...
-    // (Feel free to comment out the above three lines.)
-
-
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
 }//end class
