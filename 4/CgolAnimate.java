@@ -1,17 +1,8 @@
 import java.io.*;
 import java.util.*;
 
-/**
+/*
 Dwayne, Jiyoon, and Benson
-   The Rules of Life:
-   Survivals:
-   * A cell with 2 or 3 living neighbours will survive for the next generation.
-   Death:
-   * Each cell with >3 neighbours will die from overpopulation.
-   * Every cell with <2 neighbours will die from isolation.
-   Birth:
-   * Each dead cell adjacent to exactly 3 living neighbours is a birth cell. It will come alive next generation.
-   NOTA BENE:  All births and deaths occur simultaneously. Together, they constitute a single generation
 */
 
 public class CgolAnimate{
@@ -26,7 +17,6 @@ public class CgolAnimate{
     return result;
   }
 
-
   //print the board to the terminal
   public static void printBoard(char[][] board) {
     for (int i = 0; i < board.length; i++){
@@ -37,12 +27,10 @@ public class CgolAnimate{
     System.out.println();
   }
 
-
   //set cell (r,c) to val
   public static void setCell(char[][] board, int r, int c, char val){
     board[r][c] = val;
   }
-
 
   //return number of living neigbours of board[r][c]
   public static int countNeighbors(char[][] board, int r, int c) {
@@ -163,12 +151,7 @@ public class CgolAnimate{
     return numNeighbor;
   }
 
-
-  /**
-     precond: given a board and a cell
-     postcond: return next generation cell state based on CGOL rules
-     (alive 'X', dead ' ')
-  */
+  //figures out if cell should be alive or dead depending on number of neighbors
   public static char getNextGenCell(char[][] board,int r, int c) {
     int neigh = countNeighbors(board, r, c);
     if (neigh <2 || neigh >3){//die if 0 , 1, or 4+ neighbors
@@ -182,10 +165,8 @@ public class CgolAnimate{
     }
   }
 
-
   //generate new board representing next generation
   public static char[][] generateNextBoard(char[][] board) {
-
     //make new board
     char[][] newBoard = createNewBoard(board.length,board[0].length);
     //loop through new board
@@ -196,26 +177,15 @@ public class CgolAnimate{
         }
      }
     return newBoard;
-
-    //should represent the new amount of Xs and Os based on position of living cells
-    //if cell next to [r][c] is dead then cell it self is deal
-    //if cell next to current cell != 'X' then current cell itself is the '0'
-    //
   }
 
 // ^ Levene
-public static void animate(char[][] board) {
+public static void animate(char[][] board,int frame) {
   //clear screen, place cursor at origin (upper left)
+  System.out.print("[2J\n");
   System.out.print("[0;0H\n");
-
   printBoard(board);
-
-  // After you have predicted/observed/reconciled
-  // behavior of the preceding line,
-  // comment it out,
-  // uncomment the for loop below, and
-  // re-apply your process.
-
+  System.out.println("Gen "+frame);
   delay(1000);
 }
 public static void delay(int n) {
@@ -257,28 +227,10 @@ public static void delay(int n) {
     setCell(board, 8, 4, 'X');
 
     for (int frame = 0; frame < 10; frame++) {
-      System.out.println("Gen X + " + frame +": ");
       board = generateNextBoard(board);
-      animate(board);
+      animate(board,frame);
     }
-/*
-    //Print 1st Gen
-    System.out.println("Gen X:");
-    printBoard(board);
-    System.out.println("--------------------------\n\n");
 
-    //Print 2nd Gen
-    System.out.println("Gen X+1:");
-    board = generateNextBoard(board);
-    printBoard(board);
-    System.out.println("--------------------------\n\n");
-
-    //Print 3rd Gen
-    System.out.println("Gen X+2:");
-    board = generateNextBoard(board);
-    printBoard(board);
-    System.out.println("--------------------------\n\n");
-*/
   }//end main()
 
 }//end class
