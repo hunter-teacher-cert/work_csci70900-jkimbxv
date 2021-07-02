@@ -51,10 +51,7 @@ public class Cgol{
       (r, c-1)     (r,c)    (r,c+1)
       (r+1,c-1)   (r+1,c)  (r+1,c+1)
     */
-    //checking non-edge cases
-    //check edge cases, where r == 0 or board.length -1
-    //where c == 0 or or board[0].length-1
-
+    //checking edge cases then non edge
     //non corner top row
     if (r==0&& c!=0 &&c!=board[0].length-1){
       //starts at r to prevent going above
@@ -67,7 +64,7 @@ public class Cgol{
       }
     }
 
-    //non corner left column
+    //non corner left most column
     else if (c==0&&r!=0&&r!=board.length-1){
       for (int i = r-1; i<=r+1;i++){
         for (int j = c; j<=c+1;j++){
@@ -89,7 +86,7 @@ public class Cgol{
       }
     }
 
-    //noncorner right col
+    //noncorner right most col
     else if (c==board[0].length-1 && r!=0&&r!=board.length-1){
       for (int i = r-1; i<=r+1;i++){
         for (int j = c-1; j<=c;j++){
@@ -99,7 +96,6 @@ public class Cgol{
         }
       }
     }
-
     //top left corner
     else if(c==0 && r == 0){
       for (int i = r; i<=r+1;i++){
@@ -110,7 +106,6 @@ public class Cgol{
         }
       }
     }
-
     //top right corner
     else if(c==board[0].length-1 && r == 0){
       for (int i = r; i<=r+1;i++){
@@ -121,7 +116,6 @@ public class Cgol{
         }
       }
     }
-
     //bottom left corner
     else if(c==0 && r == board.length-1){
       for (int i = r-1; i<=r;i++){
@@ -132,7 +126,6 @@ public class Cgol{
         }
       }
     }
-
     //bottom right corner
     else if(c==board[0].length-1 && r == board.length-1){
       for (int i = r-1; i<=r;i++){
@@ -143,7 +136,6 @@ public class Cgol{
         }
       }
     }
-
     //non edge cases
     else{
       for (int i = r-1; i<=r+1;i++){
@@ -154,21 +146,14 @@ public class Cgol{
         }
       }
     }
-
     //Subtract the cell being checked
     if (board[r][c]=='X'){
       numNeighbor--;
     }
-
     return numNeighbor;
   }
 
-
-  /**
-     precond: given a board and a cell
-     postcond: return next generation cell state based on CGOL rules
-     (alive 'X', dead ' ')
-  */
+  //figures out if cell should be alive or dead depending on number of neighbors
   public static char getNextGenCell(char[][] board,int r, int c) {
     int neigh = countNeighbors(board, r, c);
     if (neigh <2 || neigh >3){//die if 0 , 1, or 4+ neighbors
@@ -185,7 +170,6 @@ public class Cgol{
 
   //generate new board representing next generation
   public static char[][] generateNextBoard(char[][] board) {
-
     //make new board
     char[][] newBoard = createNewBoard(board.length,board[0].length);
     //loop through new board
@@ -196,11 +180,6 @@ public class Cgol{
         }
      }
     return newBoard;
-
-    //should represent the new amount of Xs and Os based on position of living cells
-    //if cell next to [r][c] is dead then cell it self is deal
-    //if cell next to current cell != 'X' then current cell itself is the '0'
-    //
   }
 
 // ^ Levene
