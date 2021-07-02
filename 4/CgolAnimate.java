@@ -11,7 +11,7 @@ public class CgolAnimate{
     char[][] result = new char[rows][cols];
     for (int r = 0; r < result.length; r++){
       for (int c = 0; c< result[r].length; c++){
-        result[r][c] = '_';
+        result[r][c] = ' ';
       }
     }
     return result;
@@ -155,7 +155,7 @@ public class CgolAnimate{
   public static char getNextGenCell(char[][] board,int r, int c) {
     int neigh = countNeighbors(board, r, c);
     if (neigh <2 || neigh >3){//die if 0 , 1, or 4+ neighbors
-      return '_';
+      return ' ';
     }else if (neigh == 3){ //birth
       return 'X';
     }else if (neigh == 2){ //return current condition
