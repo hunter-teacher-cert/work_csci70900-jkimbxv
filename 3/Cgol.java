@@ -210,6 +210,13 @@ public class Cgol
      }
     return newBoard;
 
+    // for(int i = 0; i < r; i++){
+    //     for (j = 0; j < j[0].length){
+
+    //     }
+    // }
+
+
     //should represent the new amount of Xs and Os based on position of living cells
     //if cell next to [r][c] is dead then cell it self is deal
     //if cell next to current cell != 'X' then current cell itself is the '0'
@@ -220,6 +227,7 @@ public class Cgol
 
   public static void main( String[] args )
   {
+
     char[][] board;
     board = createNewBoard(5,5);
     printBoard(board);
@@ -230,17 +238,26 @@ public class Cgol
     setCell(board, 0, 2, 'X');
     setCell(board, 3, 2, 'X');
     setCell(board, 3, 3, 'X');
-    printBoard(board);
-
-
     System.out.println("Gen X:");
     printBoard(board);
     System.out.println("--------------------------\n\n");
-    board = generateNextBoard(board);
     System.out.println("Gen X+1:");
+    board = generateNextBoard(board);
+    printBoard(board);
+    System.out.println("--------------------------\n\n");
+    System.out.println("Gen X+2:");
+    board = generateNextBoard(board);
     printBoard(board);
     System.out.println("--------------------------\n\n");
 
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // TASK:
+    // Once your initial version is running,
+    // try out different starting configurations of living cells...
+    // (Feel free to comment out the above three lines.)
+
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
 }//end class
