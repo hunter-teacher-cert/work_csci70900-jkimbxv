@@ -180,6 +180,7 @@ public class CgolAnimate{
   }
 
 // ^ Levene
+//animates the board to paint over the previous board then display
 public static void animate(char[][] board,int frame) {
   //clear screen, place cursor at origin (upper left)
   System.out.print("[2J\n");
@@ -188,12 +189,15 @@ public static void animate(char[][] board,int frame) {
   System.out.println("Gen "+frame);
   delay(1000);
 }
+//tofr told us to kinda ignore so that is what i shall do
 public static void delay(int n) {
   try {
     Thread.sleep(n);
   }
   catch(InterruptedException e) {}
 }
+
+  //main game play function
   public static void main( String[] args )
   {
     //Initialize empty board
