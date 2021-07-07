@@ -24,9 +24,11 @@ public Time (int hour, int minute, double second){
 }
 //print function for Time
 public void printTime(){
-  System.out.println(this.hour + ":" + this.minute + ":"+this.second);
+  System.out.printf("%02d:%02d:%04.1f\n",this.hour, this.minute, this.second);
+  //System.out.println(this.hour + ":" + this.minute + ":"+this.second);
 }
 
+//getter methods for each attribute
 public int getHour(){
   return this.hour;
 }
