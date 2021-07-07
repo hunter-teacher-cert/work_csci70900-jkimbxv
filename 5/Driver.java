@@ -20,34 +20,38 @@ public class Driver {
     newT = t;
 
     //print all of the above (See multiple ways to do this? Try all -- and document in comments!) **
-    t.printTime();
+    //t.printTime();
 
     //test for equality of each of the Time instances above. Print results. **
     t = new Time(10,50,59.0);
+    System.out.print("Time t is currently: ");
+    t.printTime();
     Time t2 = new Time(1,13,2.0);
+    System.out.print("Time t2 is currently: ");
+    t2.printTime();
+    System.out.print("Are the values of attributes in t and t2 equivalent? ");
     System.out.println(t2.equals(t));
 
     //Time t = new Time();
     Time t0 = new Time(11, 59, 59.9);
     Time t1 = new Time(11, 59, 59.9);
     //Time t2 = null;
+    System.out.print("Time t0 is currently: ");
     System.out.println(t0);
+    System.out.print("Time t1 is currently: ");
     System.out.println(t1);
+    System.out.print("Time t2 is currently: ");
     System.out.println(t2);
-    System.out.println( t0 == t1);
-    System.out.println( t0 == t2);
+    System.out.print("Are t0 and t1 making reference to the same object? ");
+    System.out.println(t0 == t1);
+    System.out.print("Are t0 and t2 making reference to the same object? ");
+    System.out.println(t0 == t2);
+    System.out.print("Are the values of attributes in t0 and t1 equivalent? ");
     System.out.println(t0.equals(t1));
 
-    /*
-    test .equals without defining it in Time.java
-    */
-
-    //add two Time objects and print results
-    //t.add(t2).printTime();
-
-    //add two Time objects and save the result in another Time object
     Time t3 = new Time();
     t3 = t.add(t2);
+    System.out.print("The sum of t and t2 is: ");
     t3.printTime();
 
 
