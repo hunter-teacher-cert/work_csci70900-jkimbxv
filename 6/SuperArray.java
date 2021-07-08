@@ -60,13 +60,9 @@ public class SuperArray{
     //Are we past the end of the array? If yes, grow until there is enough capacity
     //while loop to keep increasing the size until index is reached go account for indexes way out of bounds
 
-    //DEBUGGING CODE
-    //System.out.println("Data length: " + data.length);
-    //System.out.println("Number of elements " + numberElements);
-    while (data.length <= index){
-      grow();
-      //numberElements = index;
-      //System.out.println("Growing again");
+    if (data.length <= index){
+      System.out.println("index out of bounds, try again");
+      return;
     }
     //are we adding in the middle of the filled-in portion of the array? If yes, shift
     //DEBUGGING CODE
