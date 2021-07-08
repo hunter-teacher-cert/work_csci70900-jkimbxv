@@ -1,3 +1,6 @@
+//6/SuperArrayDriver
+//Collaborators: lfridman2016	mlaks23	jkimbxv
+
 import java.io.*;
 import java.util.*;
 
@@ -25,12 +28,12 @@ public class SuperArrayDriver {
     System.out.println(sa.isEmpty());
 
 
-   //System.out.println("\nTesting add at different indices (end)");
+   System.out.println("\nTesting add at different indices (end)");
    //sa.add(5, 10);
     //System.out.println(sa);
-    //sa.add(50, 100);
-    //sa.add(51, 101);
-    //System.out.println(sa);
+    sa.add(50, 100);
+    sa.add(51, 101);
+    System.out.println(sa);
     //sa.add(20, 100);
     //System.out.println(sa);
 
