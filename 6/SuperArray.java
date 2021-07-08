@@ -57,16 +57,12 @@ public class SuperArray{
       grow();
       System.out.println("Growing once");
     }
-    //Are we past the end of the array? If yes, grow until there is enough capacity
-    //while loop to keep increasing the size until index is reached go account for indexes way out of bounds
-
+    //Are we past the end of the array? If yes, throw error
     if (data.length <= index){
       System.out.println("index out of bounds, try again");
       return;
     }
     //are we adding in the middle of the filled-in portion of the array? If yes, shift
-    //DEBUGGING CODE
-    //System.out.println("Index " + index);
 
     if(index < numberElements) { //shifting numbers over to make room to add
       for (int i = numberElements; i > index; i--) {
@@ -76,8 +72,7 @@ public class SuperArray{
     if (numberElements < index) { //if index is beyond initial chunk of numbers
       numberElements = index;     //numberElements is assigned to index making all the number up to that cell also part of the numberElements
     }
-    //DEBUGGING CODE
-    //System.out.println("Number of elements " + numberElements);
+
     data[index] = value;
     numberElements++;
   }
@@ -92,11 +87,7 @@ public class SuperArray{
   }
 //checks if data is empty by looking at the number of elements
   public boolean isEmpty(){
-    if (numberElements == 0) {
-      return true;
-    } else {
-      return false;
-    }
+    return (numberElements == 0);
   }
 
   //returns the element at the index specified by the parameter
@@ -121,7 +112,6 @@ public class SuperArray{
     return result;
   }//end toString()
 
-
   //helper method for debugging/development phase
   public String debug(){
     String s = "";
@@ -133,7 +123,6 @@ public class SuperArray{
     s = s + "\n";
     return s;
   }//end debug()
-
 
 //doubles the capacity of the data array
   private void grow() {
