@@ -21,20 +21,17 @@ public class SuperArray{
   private int[] data;           //where the actual data is stored
   private int numberElements;   //number of "meaningful" elements
 
-
   // ~~~~~~~~~~~~~~~ CONSTRUCTORS ~~~~~~~~~~~~~~~
   //overloaded constructor -- allows specification of initial capacity
   public SuperArray( int size ) {
      data = new int [size];
      numberElements = 0;
   }
-
   //default constructor -- initializes capacity to 10
   public SuperArray(){
     data = new int [10];
     numberElements = 0;
   }
-
 
   // ~~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~
   public void add( int value ) {
@@ -42,11 +39,8 @@ public class SuperArray{
     if (numberElements >= data.length) {
       grow();
     }
-    // SIMPLE VERSION DOES NOT AUTO-GROW CAPACITY; INSERT MORE CODE HERE LATER
-
     // add item
     data[numberElements] = value;
-
     // increment numberElements
     numberElements++;
   }//end add()
@@ -58,7 +52,7 @@ public class SuperArray{
       System.out.println("Growing once");
     }
     //Are we past the end of the array? If yes, throw error
-    if (data.length <= index){
+    if (index >= numberElements){
       System.out.println("index out of bounds, try again");
       return;
     }
@@ -72,9 +66,8 @@ public class SuperArray{
     if (numberElements < index) { //if index is beyond initial chunk of numbers
       numberElements = index;     //numberElements is assigned to index making all the number up to that cell also part of the numberElements
     }
-
-    data[index] = value;
-    numberElements++;
+    data[index] = value; //set value in the new empty space
+    numberElements++; //increment numberElements since we added extra 
   }
 
 //removes element at indicated index
