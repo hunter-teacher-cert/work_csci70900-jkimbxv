@@ -1,3 +1,6 @@
+//6/SuperArray
+//Collaborators: lfridman2016	mlaks23	jkimbxv
+
 /**
    lab skeleton
    encapsulation / SuperArray
@@ -13,8 +16,7 @@
 import java.io.*;
 import java.util.*;
 
-public class SuperArray
-{
+public class SuperArray{
   //instance vars
   private int[] data;           //where the actual data is stored
   private int numberElements;   //number of "meaningful" elements
@@ -57,39 +59,42 @@ public class SuperArray
     }
     //Are we past the end of the array? If yes, grow until there is enough capacity
     //while loop to keep increasing the size until index is reached go account for indexes way out of bounds
-    System.out.println("Data length: " + data.length);
-    System.out.println("Number of elements " + numberElements);
+
+    //DEBUGGING CODE
+    //System.out.println("Data length: " + data.length);
+    //System.out.println("Number of elements " + numberElements);
     while (data.length <= index){
       grow();
       //numberElements = index;
-      System.out.println("Growing again");
+      //System.out.println("Growing again");
     }
     //are we adding in the middle of the filled-in portion of the array? If yes, shift
-    System.out.println("Index " + index);
+    //DEBUGGING CODE
+    //System.out.println("Index " + index);
 
-    if(index < numberElements) {
+    if(index < numberElements) { //shifting numbers over to make room to add
       for (int i = numberElements; i > index; i--) {
         data[i] = data[i - 1];
       }
     }
-    if (numberElements < index) {
-      numberElements = index;
+    if (numberElements < index) { //if index is beyond initial chunk of numbers
+      numberElements = index;     //numberElements is assigned to index making all the number up to that cell also part of the numberElements
     }
-    System.out.println("Number of elements " + numberElements);
+    //DEBUGGING CODE
+    //System.out.println("Number of elements " + numberElements);
     data[index] = value;
     numberElements++;
-
-
-
   }
 
+//removes element at indicated index
   public void remove(int index){
+    //shifts over numbers starting from index to end
     for (int i = index; i < numberElements-1; i++) {
         data[i] = data[i + 1];
       }
-    numberElements--;
+    numberElements--; //decrements numberElements since one has been removed
   }
-
+//checks if data is empty by looking at the number of elements
   public boolean isEmpty(){
     if (numberElements == 0) {
       return true;
@@ -98,12 +103,20 @@ public class SuperArray
     }
   }
 
-
+  //returns the element at the index specified by the parameter
   public int get(int index){
     return data[index];
   }
 
+  //assigns the value specified by the parameter at the given index. Grows if necessary
+  public void set (int index, int value){
+    while (index >= data.length){
+      grow();
+    }
+    data[index] = value;
+  }
 
+  //returns a String version of the array with elements separated by spaces
   public String toString() {
     String result = "";
     for (int i =0; i < numberElements; i++ ) {
@@ -126,6 +139,7 @@ public class SuperArray
   }//end debug()
 
 
+//doubles the capacity of the data array
   private void grow() {
     int[] newData = new int[data.length*2];
 
