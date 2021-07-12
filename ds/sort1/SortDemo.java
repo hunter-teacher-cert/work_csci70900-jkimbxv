@@ -66,10 +66,8 @@ public class SortDemo{
 	     int smallIndex = start; // set smallIndex to start argument value
        int smallestValue=this.data.get(start); // set smallestValue to ArrayList value at start index
 
-       for (int i= start + 1;i<this.data.size();i++) // loop starting at start value + 1 going to length of ArrayList
-       {
-         if (this.data.get(i) < smallestValue) // if value in ArrayList at i index is less than current smallestValue...
-         {
+       for (int i= start + 1;i<this.data.size();i++){ // loop starting at start value + 1 going to length of ArrayList
+         if (this.data.get(i) < smallestValue){ // if value in ArrayList at i index is less than current smallestValue...
            smallestValue = this.data.get(i); //...set the smallest value to the value at index i
            smallIndex = i; // set the smallest index to i
          }
@@ -90,7 +88,7 @@ public class SortDemo{
     public void sort(){
 	     int i; // declare variable for loop
 	     for (i=0;i < data.size()-1; i++){ // for loop to iterate through data
-         int currMinIndex = findSmallestIndex(i+1); // initializing variable to store current Minimum index
+         int currMinIndex = findSmallestIndex(i); // initializing variable to store current Minimum index
          if (data.get(currMinIndex)<data.get(i)){
            swap(i,currMinIndex);
          }
@@ -117,7 +115,6 @@ public class SortDemo{
     //binary search works only with sorted array
     /* If you finish the lab early you can get started on this */
     public int binarySearch(int value){
-	     boolean replacethiswithrealexpression=false;
 	     int lowerIndex = 0;
 	     int upperIndex = data.size();
 	     int middleIndex = data.size()/2;
