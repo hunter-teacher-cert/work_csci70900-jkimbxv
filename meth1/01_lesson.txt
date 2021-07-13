@@ -1,10 +1,10 @@
 ## Lesson objective: Students learn how to iterate through arrays
 
-### Aim: Use Loops to iterate through an array
+### Aim: How can we ask our computer to repeat actions?
 
 ### Warm up
 time: 5 min: 2 min thinking time, 3 min class discussion
-Let's say you were wrapping presents but you have hundreds of them. What might you wish you had? What might make things more efficient? 
+Let's say you were wrapping presents but you have hundreds of them. What might you wish you had? What might make things more efficient?
 
 ---
 
@@ -18,7 +18,8 @@ Explain the anatomy of a loop
 
 ### Lesson Activity part 1
 time: 15 minutes
-Have students set up loops of various sizes and various incrementation
+Have students set up loops of various sizes and various incrementation by hand, writing it out & diagramming
+Use computers to implement what they wrote out by hand
 Have students print out the index using the loops
 
 ---
@@ -26,18 +27,20 @@ Have students print out the index using the loops
 
 ### Lesson Content part 2
 time: 15 minutes
-Introduce loops in the context of arrays. 
+Introduce loops in the context of arrays.
 Introduce how indices can be used in loops
 Demonstrate construction of an array and a loop that indexes through the array via live coding
 Have students comment what each line of the code segment does
+Demonstrate Sum
 ---
 
 ### Lesson Activity part 2
 time: 20 minutes
-Students complete problem set involving various contexts. Ex: 
+Students complete problem set involving various contexts. Ex:
 Create a loop that prints out every letter of the alphabet
 Linear search
 Create an empty array and fill it with numbers
+Find Average
 
 ---
 
@@ -49,4 +52,4 @@ Go over one of the problems
 
 ---
 
-5 minutes of flex time to account for transition time. 
+5 minutes of flex time to account for transition time.
