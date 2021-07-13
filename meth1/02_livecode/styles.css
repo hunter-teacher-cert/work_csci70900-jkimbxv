@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+#temp{
+  color: grey;
+  font-size: 45px;
+  font-family: 'Permanent Marker', cursive;
+}
+img{
+  height: 100px;
+  width: 100px;
+}
