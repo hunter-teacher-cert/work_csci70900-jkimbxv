@@ -46,6 +46,6 @@ public class Node {
         System.out.print(temp+"->");
         temp = temp.getNext();
       }
-      System.out.println();
+      System.out.println("Null");
     }
 }//class Node

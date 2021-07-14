@@ -48,5 +48,13 @@ public class Driver{
 
   L.printWholeList();
 
+  //linked list stuff
+  System.out.println();
+  System.out.println("-----------Llist testing-----------");
+
+  Llist ll = new Llist();
+  ll.addFront("x");
+  System.out.println(ll);
+
     }
 }
