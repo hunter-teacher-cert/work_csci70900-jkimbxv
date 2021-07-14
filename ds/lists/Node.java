@@ -40,5 +40,12 @@ public class Node {
     public String toString() {
 	     return data;
     }//toString
-
+    public void printWholeList(){
+      Node temp = this;
+      while (temp!=null){
+        System.out.print(temp+"->");
+        temp = temp.getNext();
+      }
+      System.out.println();
+    }
 }//class Node

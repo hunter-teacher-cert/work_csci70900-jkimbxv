@@ -46,5 +46,7 @@ public class Driver{
   lInsert.setNext(L4); //jump over c and connect lInsert to L4
   System.out.println(lInsert.getNext());
 
+  L.printWholeList();
+
     }
 }
