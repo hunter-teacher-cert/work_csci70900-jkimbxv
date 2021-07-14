@@ -23,6 +23,11 @@ public class Driver{
 
 // 1.Create a new  list that looks like:
 //   L->"a"->"b"->"c"->"d"
+
+
+// 1.Create a new  list that looks like:
+//   L->"a"->"b"->"c"->"d"
+
 	Node L = new Node("a");
   Node L2 = new Node ("b");
   L.setNext(L2); //set L's next node as L2
@@ -32,7 +37,15 @@ public class Driver{
   L3.setNext(L4); //set L3's next node as L4
 
 	// 2. Write the code to insert an "x"
-	//    betwjkimeen the b and the c
+
+	//    between the b and the c
+
+  Node lInsert = new Node("x"); //create new node
+  lInsert.setNext(L3); //set lInsert next node. toL3
+  L2.setNext(lInsert); //set L2 next node to lInsert
+  //checking
+  System.out.println(L2.getNext());
+  System.out.println((L2.getNext()).getNext());
 
   Node lInsert = new Node("x"); //create new node
   lInsert.setNext(L3); //set lInsert next node. toL3
@@ -47,6 +60,7 @@ public class Driver{
   System.out.println(lInsert.getNext());
 
   L.printWholeList();
+
 
   //linked list stuff
   System.out.println();
