@@ -50,18 +50,19 @@ public class Knights{
 	     for (row = 0; row < rows+4; row++){
 	     for (col = 0; col < cols+4; col++){
 		   value = board[col][row];
-
-		// Why do we have this if as opposed to
-		// just adding the next value to the string?
-		if (value < 10 && value >= 0){
-		    result = result + "0" + value+ " ";
-		} else {
-		    result = result + value + " ";
-		}
-	    }
-	    result = result +"\n";
-	}
-	return result;
+       
+		     // Why do we have this if as opposed to
+		     // just adding the next value to the string?
+         //A: to format 2 digit vs 1 digit numbers
+		     if (value < 10 && value >= 0){
+		         result = result + "0" + value+ " ";
+		         } else {
+		         result = result + value + " ";
+		         }
+	          }
+	         result = result +"\n";
+	        }
+	         return result;
     }
 
     public boolean solve(int col,int row, int count){
@@ -71,26 +72,25 @@ public class Knights{
 	// in the maze we knew we were done when we found the exit. here, when do we know when we're done?
   //A: when we've visited all the spaces
 	// HINT: you have an nxn board and are done when you've visited every board location
-	if (count>=(rows*cols)){
+	if (count>(rows*cols)){
 	    System.out.println(this);
 	    return true;
 	}
-
 
 	// this should return false when we're at an illegal locaiton
 	// change CHANGETHIS to the appropriate boolean
 	// HINT: we are tracking our moves in the board
 	// and also built that border of -1 values.
-	if (board[row][col] == -1 //trying to go outside of the board therefore return false
-      || board[row][col]!=0){ //if you've visited before; not viable space therefore return false
-	    return false;
+	if ((board[row][col] == -1)//trying to go outside of the board therefore return false
+      || (board[row][col]>0)){ //if you've visited before; not viable space therefore return false
+      System.out.println("error");
+      return false;
 	}
 
 	// what do we put into the board
 	board[col][row]=count;
-  count++;
 
-	delay(50);
+	delay(500);
 	System.out.println(clearScreen+this);
 
 
@@ -101,28 +101,39 @@ public class Knights{
 	// 2. The parameters for the call are a little different.
 	// Add the recursive calls here
 
-
-
   // RECURSIVE CALLS
   // try all the spaces we can go to
   solved = solve(col+1,row+2,count);
-  if (!solved)
-      solved = solve(col-1,row+2,count);
-  if (!solved)
-      solved = solve(col+1,row-2,count);
-  if (!solved)
-      solved = solve(col-1,row-2,count);
-  if (!solved)
-      solved = solve(col+2,row-1,count);
-  if (!solved)
-      solved = solve(col+2,row+1,count);
-  if (!solved)
+  if (!solved){
+      solved = solve(col-1,row+2,count+1);
+      System.out.println("Solve 1");
+  }
+  if (!solved){
+      solved = solve(col+1,row-2,count+1);
+      System.out.println("Solve 2");
+  }
+  if (!solved){
+      solved = solve(col-1,row-2,count+1);
+      System.out.println("Solve 3");
+  }
+  if (!solved){
+      solved = solve(col+2,row-1,count+1);
+      System.out.println("Solve 4");
+  }
+  if (!solved){
+      solved = solve(col+2,row+1,count+1);
+      System.out.println("Solve 5");
+  }
+  if (!solved){
       solved = solve(col-2,row-1,count);
-  if (!solved)
-      solved = solve(col-2,row+1,count);
+      System.out.println("Solve 6");
+  }
+  if (!solved){
+      solved = solve(col-2,row+1,count+1);
+      System.out.println("Solve 7");
+  }
 
 	// Here we unset where we were for the backtracking
-
 	board[col][row]=0;
 	return solved;
     }

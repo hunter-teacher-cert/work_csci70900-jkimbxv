@@ -25,7 +25,6 @@ public class TwoDimArray
     }System.out.println();
   }
 
-
   //return sum of all items in 2D integer array a
   public static int sum1( int[][] a ) {
     int result = 0;

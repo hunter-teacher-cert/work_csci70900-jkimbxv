@@ -1,4 +1,4 @@
-// heading
+// Jiyoon Kim and Tiffany Wong
 
 public class Fib {
 
@@ -11,22 +11,22 @@ public class Fib {
   public static int fib(int n){
 
     //recursive definition
-    /*if (n <= 1){
+    /*if (n <= 1){ //for base cases f(0) = 0 and f(1) = 1
       return n;
     } else {
       return fib(n-1)+fib(n-2);
     }*/
 
     //alternate implementation with loop
-    int i = 0;
+    int i = 0; //index of current fib term
     int sum = 0;
     int sumPrev = 1;
-    do{
-      int temp = sum;
-      sum = sum + sumPrev;
+    while(i<n){
+      int temp = sum; // temp variable to store sum of n-2th term
+      sum = sum + sumPrev; //adding n-1 and n-2th term
       sumPrev = temp;
       i++;
-    } while(i<n);
+    }
     return sum;
   }
 

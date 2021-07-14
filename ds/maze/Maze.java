@@ -7,21 +7,21 @@ public class Maze{
     private int rows = 25;
     private int cols = 85;
 
+//some magic code
     private String clearScreen="[0;0H\n";
 
-    private void delay(int n)
-    {
-	try
+    private void delay(int n){
+	     try
 	    {Thread.sleep(n);}
 	catch(InterruptedException e)
 	    {}
     }
 
     public Maze(String filename){
-	try{
-	    board = new char[cols][rows];
-	    int row = 0;
-	    int col = 0;
+	     try{
+	        board = new char[cols][rows];
+	         int row = 0;
+	          int col = 0;
 
 	    for (row = 0; row < rows; row++){
 		for (col = 0; col < cols ; col++){
@@ -46,7 +46,7 @@ public class Maze{
 	} catch (IOException e){
 	    e.printStackTrace();
 	}
-
+//end of magic code
 
     }
 
@@ -62,11 +62,38 @@ public class Maze{
 	return result;
     }
 
-    public boolean solve(int col,int row){
-	return false;
+  public boolean solve(int col,int row){
+	boolean solved;
+
+	System.out.println(clearScreen+this);
+	delay(100);
+	// BASE CASE 1 - solved
+	// if we found the exit we're done - return true
+	if (board[col][row]=='$')
+			       return true;
+
+	// BASE CASE 2 - dead end
+	// if we hit a wall (' ') or our path ('z' or '.'),
+  //we can't go further this way - return false
+	if (board[col][row]==' ' //wall
+	    || board[col][row]=='z' //curr path
+	    || board[col][row]=='.') //past path
+	    return false;
+
+	// put ourselves in the maze
+	board[col][row]='z';
+	// RECURSIVE CALLS
+	// try all the spaces we can go to
+	solved = solve(col+1,row);
+	if (!solved)
+	    solved = solve(col-1,row);
+	if (!solved)
+	    solved = solve(col,row+1);
+	if (!solved)
+	    solved = solve(col,row-1);
+	// since we're not done yet remove ourselves
+	   board[col][row]='.';
+	   return solved;
     }
-
-
-
 
 }

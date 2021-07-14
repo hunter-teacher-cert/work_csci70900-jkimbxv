@@ -31,7 +31,7 @@ Introduce loops in the context of arrays.
 Introduce how indices can be used in loops
 Demonstrate construction of an array and a loop that indexes through the array via live coding
 Have students comment what each line of the code segment does
-Demonstrate Sum
+Demonstrate Sum of array
 ---
 
 ### Lesson Activity part 2
