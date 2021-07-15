@@ -97,6 +97,8 @@ public class Driver{
   System.out.println("testing remove()");
   ll.remove(1); //removes "i've been inserted!"
   System.out.println(ll);
+  ll.remove(10); //does nothing
+  System.out.println(ll);
   System.out.println();
 
 
