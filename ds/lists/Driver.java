@@ -47,14 +47,6 @@ public class Driver{
   System.out.println(L2.getNext());
   System.out.println((L2.getNext()).getNext());
 
-  Node lInsert = new Node("x"); //create new node
-  lInsert.setNext(L3); //set lInsert next node. toL3
-  L2.setNext(lInsert); //set L2 next node to lInsert
-  //checking
-  System.out.println(L2.getNext());
-  System.out.println((L2.getNext()).getNext());
-
-
 	// 3. Write the code to delete the c
   lInsert.setNext(L4); //jump over c and connect lInsert to L4
   System.out.println(lInsert.getNext());
@@ -66,8 +58,48 @@ public class Driver{
   System.out.println("-----------Llist testing-----------");
 
   Llist ll = new Llist();
-  ll.addFront("x");
+  System.out.println("testing addFront()");
+  ll.addFront("charlie");
+  ll.addFront("bravo");
+  ll.addFront("alpha");
   System.out.println(ll);
+  System.out.println();
+
+  System.out.println("testing isEmpty()");
+  Llist listA = new Llist();
+  System.out.println(listA.isEmpty());
+  System.out.println();
+
+  System.out.println("testing length()");
+  System.out.println(ll.length()); //prints 3
+  System.out.println();
+
+  System.out.println("testing get()");
+  System.out.println(ll.get(2)); //prints "charlie"
+  System.out.println(ll.get(1)); //prints "bravo"
+  System.out.println();
+
+  System.out.println("testing set()");
+  ll.set(1,"i'm new"); //prints "alpha i'm new charlie"
+  System.out.println(ll);
+  System.out.println();
+
+  System.out.println("testing insert()");
+  ll.insert(1, "I've been inserted"); //"alpha, i've been inserted, i'm new, charlie"
+  System.out.println(ll);
+  System.out.println();
+
+  System.out.println("testing search()");
+  System.out.println(ll.search("1")); //-1
+  System.out.println(ll.search("charlie")); //3
+  System.out.println();
+
+  System.out.println("testing remove()");
+  ll.remove(1); //removes "i've been inserted!"
+  System.out.println(ll);
+  System.out.println();
+
+
 
     }
 }
