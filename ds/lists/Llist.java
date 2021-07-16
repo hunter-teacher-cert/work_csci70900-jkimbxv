@@ -87,7 +87,7 @@ public class Llist{
        throw new ArithmeticException("index out of bounds");
       }
       Node prevNode = getNode(index-1);
-      Node newNode = new Node(value,getNode(index));
+      Node newNode = new Node(value,prevNode.getNext());
       prevNode.setNext(newNode);
     }
 
@@ -110,9 +110,17 @@ public class Llist{
     // does nothing if index out of bounds
     public void remove(int index){
       if (index < this.length()){
-      Node preNode = getNode(index-1);
-      Node postNode = getNode(index+1);
-      preNode.setNext(postNode);
+        if (index == 0){ //front edge case
+            Node postNode = getNode(index+1);
+            front = postNode;
+        }else if (index == this.length()-1){ //end edge case
+            Node preNode = getNode (index-1);
+            preNode.setNext(null);
+        }else{
+          Node preNode = getNode(index-1);
+          Node postNode = (preNode.getNext()).getNext();
+          preNode.setNext(postNode);
+        }
     }
     }
 
