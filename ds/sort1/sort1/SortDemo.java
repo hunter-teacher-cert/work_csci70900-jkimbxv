@@ -59,25 +59,18 @@ public class SortDemo{
       5,3,10,6,8
       if start was 2 (start at index 2, value 10) then it woudl return 3 which is the index of the value
       6 which is the index with the smallest value from start to end
-
     */
     public int findSmallestIndex(int start){
-	int smallIndex = start;
+    // start a variable at the one after start
+	     int smallIndex = start;
 
-	// start a variable at the one after start
-	// your code here
-
-	// loop from that variable to end and update smallIndex as needed
-	// your code here
-	int i;
-	for (i = smallIndex + 1; i < this.data.size(); i++){
-
-	    if (this.data.get(i) < this.data.get(smallIndex)){
-		smallIndex = i;
+	  // loop from that variable to end and update smallIndex as needed
+	  for (int i = smallIndex + 1; i < this.data.size(); i++){
+      if (this.data.get(i) < this.data.get(smallIndex)){
+		      smallIndex = i;
 	    }
-
-	}
-	return smallIndex;
+	   }
+	    return smallIndex;
     }
 
 
@@ -93,9 +86,7 @@ public class SortDemo{
         }
     }
 
-
-
-    /* If you finish the lab early you can get started on this */
+  /* If you finish the lab early you can get started on this */
   public int linearSearch(int value){
       return 0; // replace this return
 	}
