@@ -3,6 +3,15 @@ import java.util.*;
 
 public class DLLDriver {
     public static void main(String[] args) {
+//checking new nodes for doubly linked lists
+      Node zero = new Node("0");
+      Node one = new Node("1");
+      zero.setNext(one);
+      one.setPrev(zero);
+      Node two = new Node("2");
+      one.setNext(two);
+      two.setPrev(one);
+      System.out.println(two.getPrev());
 
       DLL newDLL = new DLL();
       newDLL.addFront("node 4");
@@ -10,7 +19,10 @@ public class DLLDriver {
       newDLL.addFront("node 2");
       newDLL.addFront("node 1");
       newDLL.addFront("node 0");
-      System.out.println(newDLL.getNode(1));
-      System.out.println(newDLL);
+      newDLL.addLast("node 5");
+      System.out.println((newDLL));
+
+
+
     }
   }
