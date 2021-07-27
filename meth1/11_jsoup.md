@@ -18,9 +18,9 @@ Option 2: Students will analyze sports statistics (e.g. NBA, MLB).
 ### Deliverables
 Come up with new information through your research (new insight)
 Option 1: Generate a basic bar graph (e.g. player vs points)
-Option 2: Generate stats of common words/topics
+Option 2: Generate stats of common words/topics (average words, mode, etc) 
 
 ### Reflections
 What are we learning from this?
 What are our new insights?
-What kind of article could be written using the data you extracted? 
+What kind of article could be written using the data you extracted?
