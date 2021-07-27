@@ -64,57 +64,57 @@ public class BSTree {
     }//end insert()
 ////////////////////////////////////////////////////////////////
     //preorder traversal
-    private void traverse(TreeNode current){ //O(n)
+    private void preorderTraverse(TreeNode current){ //O(n)
       if (current == null){ //empty node
         return;
       }
       //do something to current node
       System.out.print(current.getData()+", ");
       //recursively print left
-      traverse(current.getLeft());
+      preorderTraverse(current.getLeft());
       //recursively print right
-      traverse(current.getRight());
+      preorderTraverse(current.getRight());
     }
-    public void traverse(){ //preorder traversal
-      traverse(root);
+    public void preorderTraverse(){ //preorder traversal
+      preorderTraverse(root);
       //need to be able to go in one direction and come back
       //recursion!
     }//end traverse
 
     //postorder traversal
-    private void traverse2(TreeNode current){
+    private void postorderTraverse(TreeNode current){
       if (current == null){ //empty node
         return;
       }
       //recursively print left
-      traverse2(current.getLeft());
+      postorderTraverse(current.getLeft());
       //recursively print right
-      traverse2(current.getRight());
+      postorderTraverse(current.getRight());
       //do something to current node
       System.out.print(current.getData()+", ");
     }
-    public void traverse2(){
-      traverse2(root);
+    public void postorderTraverse(){
+      postorderTraverse(root);
     }//end traverse
 
 ////////////////////////////////////////////////////////////////
     //in order traversal
-    private void traverse3(TreeNode current){
+    private void inOrderTraverse(TreeNode current){
       if (current == null){ //empty node
         return;
       }
 
       //recursively print left
-      traverse3(current.getLeft());
+      inOrderTraverse(current.getLeft());
 
       //do something to current node
       System.out.print(current.getData()+", ");
 
       //recursively print right
-      traverse3(current.getRight());
+      inOrderTraverse(current.getRight());
     }
-    public void traverse3(){
-      traverse3(root);
+    public void inOrderTraverse(){
+      inOrderTraverse(root);
       //need to be able to go in one direction and come back
       //recursion!
     }//end traverse
@@ -186,7 +186,7 @@ public class BSTree {
       }
     }
     public int getRoot(){ return root.getData();}
-    
+
     private TreeNode findMax(TreeNode start){
       if (start.getRight()==null){ //base case
         return start;

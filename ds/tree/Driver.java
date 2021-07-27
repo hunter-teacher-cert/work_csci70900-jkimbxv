@@ -39,14 +39,13 @@ public class Driver {
 		System.out.println();*/
 
 		System.out.println("middle print");
-		t.traverse3(); //middle  print, in numeric order
+		t.inOrderTraverse(); //middle  print, in numeric order
 		System.out.println();
 
-		t.delete(10);
-		t.traverse3();
+		t.delete(5);
+		t.inOrderTraverse();
 		System.out.println();
 		System.out.println(t.getRoot());
-
 
 	}
 }
