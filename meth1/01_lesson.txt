@@ -2,6 +2,10 @@
 
 ### Aim: How can we ask our computer to repeat actions?
 
+### NY Standards
+9-12.CT.3: Refine and visualize complex data sets showing how to tell different stories with the same data set.
+9-12.CT.7: Design or remix a program that utilizes a data structure to maintain changes to related pieces of data
+
 ### Warm up
 time: 5 min: 2 min thinking time, 3 min class discussion
 Let's say you were wrapping presents but you have hundreds of them. What might you wish you had? What might make things more efficient?
