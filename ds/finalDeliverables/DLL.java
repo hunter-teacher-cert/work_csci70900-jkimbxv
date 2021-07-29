@@ -59,19 +59,8 @@ public class DLL{
 	     return (front==null);
     }
     public int size(){
-      return this.size;
+      return this.size-1; //-1 to account for the null at the end
     }
-/*
-    // returns the number of items in the list
-    public int length(){
-      int result = 0;
-      Node currNode = front;
-      while (currNode != null){
-        result++;
-        currNode = currNode.getNext();
-      }
-	    return result;
-    }*/
 
     // returns the item at location index;
     // returns null if there aren't enough
@@ -86,7 +75,7 @@ public class DLL{
       return null;
       }
       if (index<(this.size() - index)){
-        System.out.println("I indexed from the front");
+        //System.out.println("I indexed from the front");
         int i = 0;
         Node currNode = front;
         while (i != index){
@@ -95,7 +84,7 @@ public class DLL{
         }
         return currNode;
       }else{
-        System.out.println("I indexed from the back");
+        //System.out.println("I indexed from the back");
         int i = this.size-1;
         Node currNode=last;
         while ( i > index){
@@ -117,7 +106,7 @@ public class DLL{
     // insert an item before index.
     // only inserts if the index is within bounds
     public void insert(int index, String value){
-      if (index > this.size()){
+      if (index > this.size() || index<1){
        throw new ArithmeticException("index out of bounds");
       }
 
@@ -125,10 +114,12 @@ public class DLL{
       Node prevNode = getNode(index-1); //previous node
       Node postNode = prevNode.getNext(); //node after
 
-      newNode.setNext(postNode); //new Node --> post Node
-      postNode.setPrev(newNode); // new Node <-- post Node
+
       prevNode.setNext(newNode); //prev Node --> new Node
       newNode.setPrev(prevNode); //prev Node <-- new Node
+      newNode.setNext(postNode); //new Node --> post Node
+      postNode.setPrev(newNode); // new Node <-- post Node
+
       size++;
     }
 
@@ -150,13 +141,12 @@ public class DLL{
     // removes the node at index.
     // does nothing if index out of bounds
     public void remove(int index){
-      size--;
-      if (index < this.size()){
+      if (index <= this.size()){
         if (index == 0){ //front edge case
             Node postNode = getNode(index+1);
             front = postNode;
 
-        }else if (index == this.size()-1){ //end edge case
+        }else if (index == this.size()){ //end edge case
             Node preNode = getNode (index-1);
             preNode.setNext(null);
         }else{
@@ -165,6 +155,9 @@ public class DLL{
           preNode.setNext(postNode); //preNode --> postNode
           postNode.setPrev(preNode);//preNode <-- postNode
         }
+        size--;
+    }else{
+      System.out.println("Couldn't remove");
     }
     }
 
