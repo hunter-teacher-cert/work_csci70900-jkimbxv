@@ -1,0 +1,2 @@
+* point objects
+* import java.awt.*;
