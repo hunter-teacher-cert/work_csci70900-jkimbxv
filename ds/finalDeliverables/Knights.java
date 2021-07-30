@@ -79,11 +79,11 @@ public class Knights{
       // this should return false when we're at an illegal locaiton
       // change CHANGETHIS to the appropriate boolean
       if (board[col][row] == -1){//trying to go outside of the board therefore return false
-        System.out.println("hit wall");
+        //System.out.println("hit wall");
         return false;
       }
       if (board[col][row] > 0){ //if you've visited before; not viable space therefore return false
-      System.out.println("been here");
+      //System.out.println("been here");
       return false;
     }
 

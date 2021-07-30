@@ -13,8 +13,11 @@ public class DLL{
     private int size;
 
     public  DLL(){
-      last = null;
-      front = null;
+      //Ian suggested I add "sentinel nodes" to help with the remove method
+      last = new Node("null"); //null nodes
+      front = new Node("null");
+      front.setNext(last);
+      last.setPrev(front);
       size = 0;
     }
 
