@@ -34,7 +34,7 @@ public class Person{
 
   public void setNum(String pN){phoneNumber = pN;}
 
-  public void setNext(Person n){next = n};
+  public void setNext(Person n){next = n;}
 
   public String toString() {return lastName + ", "+firstName+": "+phoneNumber;}//toString
 
