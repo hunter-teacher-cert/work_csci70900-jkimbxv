@@ -13,7 +13,7 @@ public class DLL{
     private int size;
 
     public  DLL(){
-      //Ian suggested I add "sentinel nodes" to help with the remove method
+      //Ian suggested I add "sentinel nodes" to help with the remove method and edge cases
       last = new Node("null"); //null nodes
       front = new Node("null");
       front.setNext(last);
@@ -53,8 +53,7 @@ public class DLL{
 	    // this is like i=i+1 is for arrays but for linked lists
 	         currentNode = currentNode.getNext();
 	      }
-	     result = result+ "null";
-	     return result;
+	     return result+"end";
     }
 
     // returns True if there is nothing in the list False otherwise

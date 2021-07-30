@@ -5,15 +5,15 @@ public class DLLDriver {
     public static void main(String[] args) {
       System.out.print("Testing addFront() and addLast(): ");
       DLL newDLL = new DLL();
-      newDLL.addFront("node 4");
+      /*newDLL.addFront("node 4");
       newDLL.addFront("node 3");
       newDLL.addFront("node 2");
       newDLL.addFront("node 1");
       newDLL.addFront("node 0");
-      newDLL.addLast("node 5");
+      newDLL.addLast("node 5");*/
 
       System.out.println((newDLL)); //toString method automatically called
-
+/*
       System.out.print("Testing isEmpty(): ");
       System.out.println((newDLL.isEmpty()));//return False
 
@@ -50,7 +50,7 @@ public class DLLDriver {
 
 
 
-
+*/
 
 
 
