@@ -12,7 +12,7 @@ public class Driver{
        */
 
 
-       Knights k = new Knights(5);
-       k.solve(2,2,0);
+       Knights k = new Knights(3);
+       k.solve(2,2,1);
     }
 }

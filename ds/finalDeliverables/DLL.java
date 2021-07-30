@@ -13,11 +13,8 @@ public class DLL{
     private int size;
 
     public  DLL(){
-      //Ian suggested I add "sentinel nodes" to help with the remove method and edge cases
-      last = new Node("null"); //null nodes
-      front = new Node("null");
-      front.setNext(last);
-      last.setPrev(front);
+      last = null;
+      front = null;
       size = 0;
     }
 
@@ -115,7 +112,6 @@ public class DLL{
       Node newNode = new Node(value); //to be inserted
       Node prevNode = getNode(index-1); //previous node
       Node postNode = prevNode.getNext(); //node after
-
 
       prevNode.setNext(newNode); //prev Node --> new Node
       newNode.setPrev(prevNode); //prev Node <-- new Node
